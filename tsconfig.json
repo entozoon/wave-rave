@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "strictNullChecks": true,
+    "module": "commonjs",
+    "jsx": "react",
+    "target": "es5",
+    "downlevelIteration": true,
+    "allowJs": true
+  },
+  "exclude": ["./node_modules/*", "./dist", "./build", "./static"]
+}
