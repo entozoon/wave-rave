@@ -22,3 +22,7 @@
 - Alternate colour mode, P1, at some point could be ace
 - Banging tunes
 - Mad 80s cover art
+
+## Optimisation
+
+- Use Rambda over Ramda, if feasible
