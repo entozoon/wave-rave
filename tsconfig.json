@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "./dist/",
+    "outDir": "./build/",
     "sourceMap": true,
     "strictNullChecks": true,
     "module": "commonjs",
@@ -9,5 +9,5 @@
     "downlevelIteration": true,
     "allowJs": true
   },
-  "exclude": ["./node_modules/*", "./dist", "./build", "./static"]
+  "exclude": ["./node_modules/*", "./build", "./static"]
 }
