@@ -1,5 +1,5 @@
 const R = require("ramda");
-const { complement, both, either, pipe, filter, map } = R;
+const { complement, both, either, pipe, filter, map, find } = R;
 
 const isEven = x => x % 2 === 0;
 
@@ -13,13 +13,17 @@ console.log(
   "Best to use the ramda functions rather than mixing - they promote simplicity and immutability https://github.com/ramda/ramda/issues/2404"
 );
 
-console.log("\n find() is like filter(), but the first result");
-console.log([1, 2, 3, 4].find(isEven)); // 2
+console.log(
+  "\n find() is like filter(), but the first result",
+  [1, 2, 3, 4].find(isEven), // 2
+  find(isEven, [1, 2, 3, 4])
+); // rambda styl e**
 
 console.log(
   "\n complement() returns the opposite of a given function",
   [1, 2, 3, 4].filter(isEven), // 2, 4
-  [1, 2, 3, 4].filter(complement(isEven)) // 1, 3
+  [1, 2, 3, 4].filter(complement(isEven)), // 1, 3
+  filter(complement(isEven), [1, 2, 3, 4]) // ramda style **
 );
 // i.e.
 // const isOdd = x => !isEven(x);
@@ -57,6 +61,7 @@ const publishedInYear = year => book => book.year === year;
 // Which you'd run like
 // publishedInYear(2019)('asimov');
 
+// Using a higher order function as a filter (kinda bollocking my mind)
 const titlesForYear = (books, year) => {
   // const selected = books.filter(publishedInYear(year));
   const selected = filter(publishedInYear(year), books);
