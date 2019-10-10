@@ -1,9 +1,7 @@
 const R = require("ramda");
-const { complement, both, either, pipe, filter, map, find } = R;
+const { complement, both, either, pipe, filter, map, find, curry, __ } = R;
 
 const isEven = x => x % 2 === 0;
-
-let _;
 
 //
 // View these learndings here, no need to run:
@@ -60,6 +58,7 @@ console.log(
 const publishedInYear = year => book => book.year === year;
 // Which you'd run like
 // publishedInYear(2019)('asimov');
+// But isn't very readable. You can use partial or partialRight(publishedInYear, [2019]), book)
 
 // Using a higher order function as a filter (kinda bollocking my mind)
 const titlesForYear = (books, year) => {
@@ -68,3 +67,41 @@ const titlesForYear = (books, year) => {
 
   return map(book => book.title, selected);
 };
+
+console.log(
+  "\n Currying is a sequence of functions each with a single argument"
+);
+// const add = (a, b) => a + b; // no!
+const add = a => b => a + b;
+const adds = a => b => c => a + b + c;
+const minus = a => b => a - b;
+console.log(add(1)); // returns function where it adds 1
+console.log(add(1)(2)); // 3 (performing the addition)
+const bhuna = curry(adds);
+console.log("bhuna", bhuna(1)(2)(3)); // I'm not getting this.. same as using adds
+console.log("bhuna__", bhuna(1)(__)(3)); // I'm not getting this.. same as using adds
+
+const publishedInYear_ = curry((year, book) => book.year === year);
+// Or like, a curry is a function that you can pass the params in any order
+// publishedInYear(year)(book);
+// publishedInYear(book)(year); // right? maybe?
+
+const titlesForYear_ = (books, year) => {
+  const selected = filter(publishedInYear_(year), books);
+
+  return map(book => book.title, selected);
+};
+
+// Placeholders, oh boy
+const bakedChicken = chicken =>
+  chicken === "fresh chicken" ? "cooked chicken" : null;
+const coconutMilk = coconut =>
+  coconut === "fresh coconut" ? "coconut milk" : null;
+// console.log(bakedChicken("fresh chicken"));
+const korma = curry(
+  (bakedChicken, coconutMilk) =>
+    "korma curry! with " + bakedChicken + " " + coconutMilk
+);
+console.log(korma("fresh chicken")("bloop"));
+console.log(korma("bloop")("fresh chicken"));
+// console.log(korma("fresh chicken")("fresh coconut"));
