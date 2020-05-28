@@ -2,12 +2,12 @@
   "compilerOptions": {
     "outDir": "./build/",
     "sourceMap": true,
-    "strictNullChecks": true,
+    "strictNullChecks": false,
     "module": "commonjs",
-    "jsx": "react",
     "target": "es5",
     "downlevelIteration": true,
-    "allowJs": true
+    "allowJs": true,
+    "noImplicitAny": false
   },
   "exclude": ["./node_modules/*", "./build", "./static"]
 }

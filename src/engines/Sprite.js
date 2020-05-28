@@ -8,8 +8,8 @@ export default class {
     // this.velocity = velocity || { x: 0, y: 0 };
     // this.adrenaline = adrenaline || 0;
     // // Create texture for each frame
-    this.poses = poses.map(pose => {
-      pose.frames = pose.frames.map(frame => {
+    this.poses = poses.map((pose) => {
+      pose.frames = pose.frames.map((frame) => {
         frame.texture = new Pixi.Texture(this.spriteSheetTexture, frame);
         return frame;
       });
@@ -48,7 +48,7 @@ export default class {
     this.sprite.scale.x = dir;
   }
   getPoseFromPoses(pose) {
-    return this.poses.filter(_ => _.name === pose)[0];
+    return this.poses.filter((_) => _.name === pose)[0];
   }
   setPose(pose) {
     // First frame

@@ -23,7 +23,7 @@ body {
 }
 /*! Scale up, to some extent, preserving pixel size and keeping within viewport */
 @for $i from 2 through 11 {
-  @media (min-width: calc(64px * #{$i})) and (min-height: calc(64px * #{$i})) {
+  @media (min-width: (64px * $i)) and (min-height: (64px * $i)) {
     #game {
       // transform: scale(#{$i});
       width: 64px * $i;

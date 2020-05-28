@@ -1,8 +1,8 @@
-import Pixi from "./engines/Pixi";
+import { pixi } from "./engines/Pixi";
 import Stage from "./stages/Stage";
 // import Time from "engines/Time";
 const letsDoThis = async () => {
-  await Pixi.create();
+  // await pixi.create();
   const stageTest = await new Stage();
   await stageTest.loop();
 };
