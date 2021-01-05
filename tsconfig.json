@@ -1,13 +1,14 @@
 {
   "compilerOptions": {
-    "outDir": "./build/",
-    "sourceMap": true,
-    "strictNullChecks": false,
-    "module": "commonjs",
     "target": "es5",
-    "downlevelIteration": true,
+    "noImplicitAny": false,
     "allowJs": true,
-    "noImplicitAny": false
+    "importHelpers": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "lib": ["esnext", "dom"]
   },
-  "exclude": ["./node_modules/*", "./build", "./static"]
+  "include": ["./src/**/*"]
 }
