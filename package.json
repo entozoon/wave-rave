@@ -1,45 +1,37 @@
 {
-  "name": "wave-rave",
-  "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
+  "name": "phaser3-rollup-typescript",
+  "version": "1.0.2",
+  "description": "Phaser 3 TypeScript Starter",
+  "main": "src/game.ts",
   "scripts": {
-    "build": "webpack --mode=production",
-    "start": "webpack-dev-server --mode=development --open"
+    "start": "cross-env NODE_ENV=development nollup -c --hot --content-base public",
+    "build": "rimraf dist && cross-env NODE_ENV=production rollup -c",
+    "serve": "serve dist"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/entozoon/tankblade.git"
+    "url": "git+https://github.com/geocine/phaser3-rollup-typescript.git"
   },
-  "author": "MichaelCook.tech",
-  "license": "ISC",
-  "keywords": [
-    "LOWREZJAM"
-  ],
+  "author": "Aivan Monceller",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/entozoon/tankblade/issues"
+    "url": "https://github.com/geocine/phaser3-rollup-typescript/issues"
   },
-  "homepage": "https://github.com/entozoon/tankblade#readme",
-  "dependencies": {
-    "@types/ramda": "^0.26.28",
-    "clean-webpack-plugin": "^3.0.0",
-    "copy-webpack-plugin": "^5.0.4",
-    "css-loader": "^3.2.0",
-    "extract-text-webpack-plugin": "^3.0.2",
-    "fontfaceobserver": "^2.1.0",
-    "html-webpack-plugin": "^3.2.0",
-    "node-sass": "^4.12.0",
-    "pixi-sound": "^3.0.4",
-    "pixi.js": "^5.2.4",
-    "ramda": "^0.26.1",
-    "sass-loader": "^7.1.0",
-    "style-loader": "^1.0.0",
-    "ts-loader": "^6.2.0",
-    "ts-node": "^8.4.1",
-    "tslint": "^5.20.0",
-    "typescript": "^3.6.3",
-    "webpack": "^4.39.0",
-    "webpack-cli": "^3.3.6",
-    "webpack-dev-server": "^3.7.2"
+  "homepage": "https://github.com/geocine/phaser3-rollup-typescript#readme",
+  "devDependencies": {
+    "@rollup/plugin-alias": "^3.0.1",
+    "@rollup/plugin-node-resolve": "^7.1.1",
+    "@rollup/plugin-replace": "^2.3.0",
+    "cross-env": "^7.0.2",
+    "nollup": "^0.14.4",
+    "phaser": "^3.51.0",
+    "rimraf": "^3.0.2",
+    "rollup": "^1.29.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-static-files": "^0.0.1",
+    "rollup-plugin-terser": "^5.3.0",
+    "rollup-plugin-typescript2": "^0.26.0",
+    "serve": "^11.3.0",
+    "typescript": "3.8.3"
   }
 }
