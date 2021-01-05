@@ -1,13 +1,7 @@
 {
   "compilerOptions": {
-    "outDir": "./build/",
-    "sourceMap": true,
-    "strictNullChecks": false,
-    "module": "commonjs",
     "target": "es5",
-    "downlevelIteration": true,
-    "allowJs": true,
-    "noImplicitAny": false
+    "moduleResolution": "node"
   },
-  "exclude": ["./node_modules/*", "./build", "./static"]
+  "include": ["./src/**/*"]
 }

@@ -1,45 +1,32 @@
 {
-  "name": "wave-rave",
-  "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
+  "name": "phaser3-typescript-project-template",
+  "version": "1.0.2",
+  "description": "A Phaser 3 Project Template using Rollup and TypeScript",
+  "main": "src/game.ts",
   "scripts": {
-    "build": "webpack --mode=production",
-    "start": "webpack-dev-server --mode=development --open"
+    "build": "rollup --config rollup.config.dist.js",
+    "start": "rollup --watch --config rollup.config.dev.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/entozoon/tankblade.git"
+    "url": "git+https://github.com/photonstorm/phaser3-typescript-project-template.git"
   },
-  "author": "MichaelCook.tech",
-  "license": "ISC",
-  "keywords": [
-    "LOWREZJAM"
-  ],
+  "author": "Richard Davey <rich@photonstorm.com> (http://www.photonstorm.com)",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/entozoon/tankblade/issues"
+    "url": "https://github.com/photonstorm/phaser3-typescript-project-template/issues"
   },
-  "homepage": "https://github.com/entozoon/tankblade#readme",
-  "dependencies": {
-    "@types/ramda": "^0.26.28",
-    "clean-webpack-plugin": "^3.0.0",
-    "copy-webpack-plugin": "^5.0.4",
-    "css-loader": "^3.2.0",
-    "extract-text-webpack-plugin": "^3.0.2",
-    "fontfaceobserver": "^2.1.0",
-    "html-webpack-plugin": "^3.2.0",
-    "node-sass": "^4.12.0",
-    "pixi-sound": "^3.0.4",
-    "pixi.js": "^5.2.4",
-    "ramda": "^0.26.1",
-    "sass-loader": "^7.1.0",
-    "style-loader": "^1.0.0",
-    "ts-loader": "^6.2.0",
-    "ts-node": "^8.4.1",
-    "tslint": "^5.20.0",
-    "typescript": "^3.6.3",
-    "webpack": "^4.39.0",
-    "webpack-cli": "^3.3.6",
-    "webpack-dev-server": "^3.7.2"
+  "homepage": "https://github.com/photonstorm/phaser3-typescript-project-template#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@rollup/plugin-replace": "^2.3.4",
+    "phaser": "^3.50.0",
+    "rollup": "^2.35.1",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-serve": "^1.1.0",
+    "rollup-plugin-typescript2": "^0.29.0",
+    "rollup-plugin-uglify": "^6.0.4",
+    "typescript": "^4.1.3"
   }
 }
