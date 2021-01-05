@@ -33,12 +33,12 @@ public class Hero : MonoBehaviour
   // physics (before update)
   void FixedUpdate()
   {
-    // var keyboard = Keyboard.current;
-    // if (keyboard.dKey.wasPressedThisFrame)
-    // {
+    var keyboard = Keyboard.current;
+    if (keyboard.dKey.wasPressedThisFrame)
+    {
     //   rigidBody.AddForce(new Vector2(10, 0) * acceleration);
-    //   Debug.Log("d");
-    // }
+      Debug.Log("d");
+    }
     // if (keyboard.aKey.wasPressedThisFrame)
     // {
     //   rigidBody.AddForce(new Vector2(-10, 0) * acceleration);
