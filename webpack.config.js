@@ -6,43 +6,44 @@ const webpack = require("webpack"),
 module.exports = (env, argv) => {
   return {
     entry: {
-      main: [`${__dirname}/src/main.ts`, `${__dirname}/src/app.scss`]
+      main: [`${__dirname}/src/main.ts`, `${__dirname}/src/app.scss`],
     },
     resolve: {
       modules: [`node_modules`, `src`],
-      extensions: [".ts", ".js", ".scss"]
+      extensions: [".ts", ".js", ".scss"],
     },
     devtool: "inline-source-map",
+    watch: true,
     output: {
       path: path.resolve(__dirname, "build"),
       filename: "bundle.js",
-      globalObject: "this"
+      globalObject: "this",
     },
     devServer: {
-      contentBase: "./build"
+      contentBase: "./build",
     },
     module: {
       rules: [
         {
           test: /\.scss$/,
           // use: extractCss.extract({
-          use: ["style-loader", "css-loader", "sass-loader"]
+          use: ["style-loader", "css-loader", "sass-loader"],
         },
         {
           test: /\.ts$/,
           use: `ts-loader`,
-          exclude: /node_modules/
-        }
-      ]
+          exclude: /node_modules/,
+        },
+      ],
     },
     plugins: [
       // new CleanWebpackPlugin([path.resolve(__dirname, "build")]),
       new CleanWebpackPlugin(),
       new CopyWebpackPlugin([{ from: "static" }]),
       new HtmlWebpackPlugin({
-        template: "static/index.html"
-      })
+        template: "static/index.html",
+      }),
     ],
-    performance: { hints: false }
+    performance: { hints: false },
   };
 };
