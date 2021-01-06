@@ -17,7 +17,7 @@ const config = {
   //  Where the build file is to be generated.
   //  Most games being built for distribution can use iife as the module type.
   output: {
-    dir: "dist",
+    dir: "docs",
     entryFileNames: "index.js",
     name: "Phaser",
     format: "iife",
