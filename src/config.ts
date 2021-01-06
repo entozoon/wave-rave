@@ -1,13 +1,15 @@
-import Phaser from 'phaser';
-
+import Phaser from "phaser";
+export const width = 320;
+export const height = 240;
 export default {
   type: Phaser.AUTO,
-  parent: 'game',
-  backgroundColor: '#33A5E7',
+  parent: "game",
+  backgroundColor: "#000",
+  pixelArt: true,
   scale: {
-    width: 800,
-    height: 600,
+    width,
+    height,
     mode: Phaser.Scale.FIT,
-    autoCenter: Phaser.Scale.CENTER_BOTH
-  }
+    autoCenter: Phaser.Scale.CENTER_BOTH,
+  },
 };
