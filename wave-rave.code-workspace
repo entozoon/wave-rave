@@ -1,0 +1,32 @@
+{
+  "folders": [
+    {
+      "path": "./"
+    }
+  ],
+  "settings": {
+    "files.watcherExclude": {
+      "!**/node_modules/**": true,
+      "**/node_modules/**": true,
+      "dist/**": true
+    },
+    "peacock.color": "#850344",
+    "workbench.colorCustomizations": {
+      "activityBar.activeBackground": "#b7045d",
+      "activityBar.activeBorder": "#101f01",
+      "activityBar.background": "#b7045d",
+      "activityBar.foreground": "#e7e7e7",
+      "activityBar.inactiveForeground": "#e7e7e799",
+      "activityBarBadge.background": "#101f01",
+      "activityBarBadge.foreground": "#e7e7e7",
+      "statusBar.background": "#850344",
+      "statusBar.foreground": "#e7e7e7",
+      "statusBarItem.hoverBackground": "#b7045d",
+      "titleBar.activeBackground": "#850344",
+      "titleBar.activeForeground": "#e7e7e7",
+      "titleBar.inactiveBackground": "#85034499",
+      "titleBar.inactiveForeground": "#e7e7e799"
+    }
+    // Don't edit these, edit peacock.color instead (and install Peacock extension)
+  }
+}
