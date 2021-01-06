@@ -1,8 +1,23 @@
+//
+// HINTS:
+// https://github.com/digitsensitive/phaser3-typescript/tree/master/src/games
+//
 import "phaser";
 
 import { height, width } from "../config";
 
-export default class Demo extends Phaser.Scene {
+import { ISpriteConstructor } from "../interfaces/sprite.interface";
+
+class Jetski extends Phaser.GameObjects.Sprite {
+  constructor(aParams: ISpriteConstructor) {
+    super(aParams.scene, aParams.x, aParams.y, aParams.texture, aParams.frame);
+    // this.foo = "hello";
+    // this.add.image(10, 10, "logo");
+  }
+  update(): void {}
+}
+export default class extends Phaser.Scene {
+  baddies = [];
   constructor() {
     super("GameScene");
   }
@@ -10,22 +25,9 @@ export default class Demo extends Phaser.Scene {
     this.load.image("logo", "assets/phaser3-logo.png");
   }
   create() {
-    const logo = this.add.image(width / 2, 0, "logo");
-    logo.width = 30;
-    logo.setScale(0.5);
-    this.tweens.add({
-      targets: logo,
-      y: height,
-      duration: 1500,
-      ease: "Sine.inOut",
-      yoyo: true,
-      repeat: -1,
-    });
-    var group = this.physics.add.group({ angularAcceleration: 60 });
-    group.create(100, 200, "logo");
-    this.time.delayedCall(6000, function () {
-      group.children.iterateLocal("setAngularAcceleration", 0);
-      group.children.iterateLocal("setAngularDrag", 60);
-    });
+    // this.baddies.push(new Jetski());
+    this.baddies.push(
+      this.add.existing(new Jetski(this, 240, 290, "walk", "southEast", 100))
+    );
   }
 }

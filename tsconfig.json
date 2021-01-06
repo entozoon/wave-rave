@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "target": "es5",
     "noImplicitAny": false,
     "allowJs": true,
     "importHelpers": true,
@@ -8,7 +7,12 @@
     "experimentalDecorators": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "lib": ["esnext", "dom"]
+    "lib": ["esnext", "dom"],
+    "target": "ES6",
+    "strict": false,
+    "sourceMap": true
   },
-  "include": ["./src/**/*"]
+  "include": ["./src/**/*"],
+  "typeRoots": ["./node_modules/phaser/types"],
+  "types": ["Phaser"]
 }
