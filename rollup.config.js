@@ -28,12 +28,12 @@ const config = {
   plugins: [
     //  Toggle the booleans here to enable / disable Phaser 3 features:
     replace({
-      "typeof CANVAS_RENDERER": "'true'",
-      "typeof WEBGL_RENDERER": "'true'",
-      "typeof EXPERIMENTAL": "'true'",
-      "typeof PLUGIN_CAMERA3D": "'false'",
-      "typeof PLUGIN_FBINSTANT": "'false'",
-      "typeof FEATURE_SOUND": "'true'",
+      "typeof CANVAS_RENDERER": JSON.stringify(true),
+      "typeof WEBGL_RENDERER": JSON.stringify(true),
+      "typeof EXPERIMENTAL": JSON.stringify(true),
+      "typeof PLUGIN_CAMERA3D": JSON.stringify(false),
+      "typeof PLUGIN_FBINSTANT": JSON.stringify(false),
+      "typeof FEATURE_SOUND": JSON.stringify(true),
       "process.env.NODE_ENV": isProd ? "'production'" : "'development'",
     }),
 
@@ -49,11 +49,11 @@ if (isProd) {
     resolve({
       extensions: [".ts"],
     }),
-    // We need to convert the Phaser 3 CJS modules into a format Rollup can use:
+    //  We need to convert the Phaser 3 CJS modules into a format Rollup can use:
     commonjs({
       include: ["node_modules/eventemitter3/**", "node_modules/phaser/**"],
       exclude: ["node_modules/phaser/src/polyfills/requestAnimationFrame.js"],
-      sourceMap: isProd,
+      sourceMap: false,
       ignoreGlobal: true,
     }),
     staticFiles({
@@ -62,11 +62,11 @@ if (isProd) {
     //  See https://www.npmjs.com/package/rollup-plugin-uglify for config options
     terser({
       mangle: false,
-      compress: {
-        global_defs: {
-          module: false,
-        },
-      },
+      // compress: {
+      //   global_defs: {
+      //     module: false,
+      //   },
+      // },
     }),
   ];
 } else {

@@ -23,7 +23,8 @@
   "scripts": {
     "prestart": "open-cli http://localhost:8080",
     "start": "nollup -c --hot --content-base public --environment NODE_ENV:development",
-    "build": "rimraf dist && cross-env NODE_ENV=production rollup -c"
+    "build": "rimraf dist && cross-env NODE_ENV=production rollup -c",
+    "serve": "npm run build && serve dist"
   },
   "repository": {
     "type": "git",
@@ -39,6 +40,7 @@
   "homepage": "https://github.com/entozoon/wave-rave#readme",
   "dependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "rollup-plugin-uglify": "^6.0.4"
   }
 }
