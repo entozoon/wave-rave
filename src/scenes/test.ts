@@ -2,7 +2,7 @@ import { Test } from "../objects/test";
 export default class extends Phaser.Scene {
   private boxes: Phaser.GameObjects.Group;
   constructor() {
-    super("GameScene");
+    super("TestScene");
   }
   preload() {
     this.load.image("logo", "./assets/sprites/mario.png");

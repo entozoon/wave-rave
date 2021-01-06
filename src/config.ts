@@ -2,18 +2,19 @@ import { BootScene } from "./scenes/boot-scene";
 import { GameScene } from "./scenes/game-scene";
 import { HUDScene } from "./scenes/hud-scene";
 import { MenuScene } from "./scenes/menu-scene";
-import Test from "./scenes/test";
+import TestScene from "./scenes/test";
 export const GameConfig: Phaser.Types.Core.GameConfig = {
-  title: "Super Mario Land",
-  url: "https://github.com/digitsensitive/phaser3-typescript",
-  version: "2.0",
-  width: 160,
-  height: 144,
-  zoom: 5,
+  title: "Wave Rave",
+  width: 320,
+  height: 200,
+  scale: {
+    mode: Phaser.Scale.FIT,
+    autoCenter: Phaser.Scale.CENTER_BOTH,
+  },
   type: Phaser.AUTO,
   parent: "game",
-  scene: [BootScene, MenuScene, HUDScene, GameScene],
-  // scene: [Test],
+  // scene: [BootScene, TestScene],
+  scene: [TestScene],
   input: {
     keyboard: true,
   },
@@ -21,9 +22,9 @@ export const GameConfig: Phaser.Types.Core.GameConfig = {
     default: "arcade",
     arcade: {
       gravity: { y: 475 },
-      debug: false,
+      debug: true,
     },
   },
-  backgroundColor: "#f8f8f8",
+  backgroundColor: "#111",
   render: { pixelArt: true, antialias: false },
 };
