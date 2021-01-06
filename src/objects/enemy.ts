@@ -1,5 +1,4 @@
 import { ISpriteConstructor } from "../interfaces/sprite.interface";
-import Phaser from "phaser";
 
 export class Enemy extends Phaser.GameObjects.Sprite {
   body: Phaser.Physics.Arcade.Body;

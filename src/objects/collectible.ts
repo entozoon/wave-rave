@@ -1,5 +1,4 @@
 import { ICollectibleConstructor } from "../interfaces/collectible.interface";
-import Phaser from "phaser";
 
 export class Collectible extends Phaser.GameObjects.Sprite {
   body: Phaser.Physics.Arcade.Body;

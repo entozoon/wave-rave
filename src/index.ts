@@ -1,5 +1,5 @@
-import { GameConfig } from "./config";
 import Phaser from "phaser";
+import { GameConfig } from "./config";
 
 // import * as Phaser from "phaser";
 

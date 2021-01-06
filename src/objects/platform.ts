@@ -1,5 +1,4 @@
 import { IPlatformConstructor } from "../interfaces/platform.interface";
-import Phaser from "phaser";
 
 export class Platform extends Phaser.GameObjects.Image {
   body: Phaser.Physics.Arcade.Body;

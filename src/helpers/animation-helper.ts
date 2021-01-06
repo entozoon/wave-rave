@@ -1,4 +1,3 @@
-import Phaser from "phaser";
 /**
  * Configs taken from official Phaser library code and edited
  *
@@ -36,7 +35,6 @@ import Phaser from "phaser";
  * {boolean}          [first=false] - [description]
  * {boolean}          [frames=false] - [description]
  */
-
 /**
  * This is a helper class for your game animations.
  *
@@ -57,13 +55,11 @@ import Phaser from "phaser";
 export class AnimationHelper {
   private scene: Phaser.Scene;
   private animationData: any;
-
   constructor(scene: Phaser.Scene, data: any) {
     this.scene = scene;
     this.animationData = data;
     this.createGameAnimations();
   }
-
   private createGameAnimations(): void {
     for (let data of this.animationData.anims) {
       let frames;
@@ -95,7 +91,6 @@ export class AnimationHelper {
           framesArray.push(frame);
         }
       }
-
       this.scene.anims.create({
         key: data.key,
         frames: frames || framesArray,

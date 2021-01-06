@@ -1,6 +1,5 @@
 import { Enemy } from "./enemy";
 import { ISpriteConstructor } from "../interfaces/sprite.interface";
-import Phaser from "phaser";
 
 export class Goomba extends Enemy {
   body: Phaser.Physics.Arcade.Body;
