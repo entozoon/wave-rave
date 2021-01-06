@@ -1,5 +1,6 @@
-import { Enemy } from './enemy';
-import { ISpriteConstructor } from '../interfaces/sprite.interface';
+import { Enemy } from "./enemy";
+import { ISpriteConstructor } from "../interfaces/sprite.interface";
+import Phaser from "phaser";
 
 export class Goomba extends Enemy {
   body: Phaser.Physics.Arcade.Body;
@@ -24,7 +25,7 @@ export class Goomba extends Enemy {
         }
 
         // apply walk animation
-        this.anims.play('goombaWalk', true);
+        this.anims.play("goombaWalk", true);
       } else {
         if (
           Phaser.Geom.Intersects.RectangleToRectangle(

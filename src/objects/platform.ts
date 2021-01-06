@@ -1,4 +1,5 @@
-import { IPlatformConstructor } from '../interfaces/platform.interface';
+import { IPlatformConstructor } from "../interfaces/platform.interface";
+import Phaser from "phaser";
 
 export class Platform extends Phaser.GameObjects.Image {
   body: Phaser.Physics.Arcade.Body;
@@ -35,9 +36,9 @@ export class Platform extends Phaser.GameObjects.Image {
     this.currentScene.tweens.add({
       targets: this,
       props: this.tweenProps,
-      ease: 'Power0',
+      ease: "Power0",
       yoyo: true,
-      repeat: -1
+      repeat: -1,
     });
   }
 

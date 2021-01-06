@@ -1,3 +1,4 @@
+import Phaser from "phaser";
 export class HUDScene extends Phaser.Scene {
   private textElements: Map<string, Phaser.GameObjects.BitmapText>;
   private timer: Phaser.Time.TimerEvent;

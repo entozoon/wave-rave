@@ -1,3 +1,4 @@
+import Phaser from "phaser";
 /**
  * Configs taken from official Phaser library code and edited
  *

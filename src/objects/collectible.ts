@@ -1,4 +1,5 @@
-import { ICollectibleConstructor } from '../interfaces/collectible.interface';
+import { ICollectibleConstructor } from "../interfaces/collectible.interface";
+import Phaser from "phaser";
 
 export class Collectible extends Phaser.GameObjects.Sprite {
   body: Phaser.Physics.Arcade.Body;
@@ -33,6 +34,6 @@ export class Collectible extends Phaser.GameObjects.Sprite {
   public collected(): void {
     this.destroy();
     this.currentScene.registry.values.score += this.points;
-    this.currentScene.events.emit('scoreChanged');
+    this.currentScene.events.emit("scoreChanged");
   }
 }

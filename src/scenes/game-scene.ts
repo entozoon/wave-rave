@@ -3,6 +3,7 @@ import { Brick } from "../objects/brick";
 import { Collectible } from "../objects/collectible";
 import { Goomba } from "../objects/goomba";
 import { Mario } from "../objects/mario";
+import Phaser from "phaser";
 import { Platform } from "../objects/platform";
 import { Portal } from "../objects/portal";
 
