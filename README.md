@@ -2,6 +2,8 @@
 
 🕹 [Wave Race](https://en.wikipedia.org/wiki/Wave_Race) inspired game, with a sweet CGA P0 palette.
 
+## [PLAY NOW](https://wave-rave.netlify.app/)
+
 ## Palette
 
 - #FFFF55

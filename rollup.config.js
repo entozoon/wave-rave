@@ -17,7 +17,7 @@ const config = {
   //  Where the build file is to be generated.
   //  Most games being built for distribution can use iife as the module type.
   output: {
-    dir: "docs",
+    dir: "dist",
     entryFileNames: "index.js",
     name: "Phaser",
     format: "iife",
@@ -38,12 +38,7 @@ const config = {
     }),
 
     //  See https://www.npmjs.com/package/rollup-plugin-typescript2 for config options
-    typescript({
-      // mykemod - this is my touch of genius, because it allows out
-      // tsconfig.json to say commonjs, which let's vscode intellisense work
-      // but override it within here to be es2015 so rollup can work
-      tsconfigOverride: { compilerOptions: { module: "es2015" } },
-    }),
+    typescript(),
   ],
 };
 
