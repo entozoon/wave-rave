@@ -1,8 +1,5 @@
-import { BootScene } from "./scenes/boot-scene";
-import { GameScene } from "./scenes/game-scene";
-import { HUDScene } from "./scenes/hud-scene";
-import { MenuScene } from "./scenes/menu-scene";
-import TestScene from "./scenes/test";
+import sceneLoad from "./scenes/load";
+import sceneTest from "./scenes/test";
 export const GameConfig: Phaser.Types.Core.GameConfig = {
   title: "Wave Rave",
   width: 320,
@@ -13,8 +10,7 @@ export const GameConfig: Phaser.Types.Core.GameConfig = {
   },
   type: Phaser.AUTO,
   parent: "game",
-  // scene: [BootScene, TestScene],
-  scene: [TestScene],
+  scene: [sceneLoad, sceneTest],
   input: {
     keyboard: true,
   },
