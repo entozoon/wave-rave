@@ -14,7 +14,7 @@ export class GameScene extends Phaser.Scene {
   // private foregroundLayer: Phaser.Tilemaps.StaticTilemapLayer;
   private backgroundLayer: Phaser.Tilemaps.TilemapLayer; // mykemod
   private foregroundLayer: Phaser.Tilemaps.TilemapLayer; // mykemod
-  // private foo: Phaser
+
   // game objects
   private boxes: Phaser.GameObjects.Group;
   private bricks: Phaser.GameObjects.Group;

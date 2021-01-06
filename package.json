@@ -36,5 +36,8 @@
   "bugs": {
     "url": "https://github.com/entozoon/wave-rave/issues"
   },
-  "homepage": "https://github.com/entozoon/wave-rave#readme"
+  "homepage": "https://github.com/entozoon/wave-rave#readme",
+  "dependencies": {
+    "@rollup/plugin-commonjs": "^17.0.0"
+  }
 }

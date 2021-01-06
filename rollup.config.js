@@ -1,5 +1,6 @@
 import alias from "@rollup/plugin-alias";
-import commonjs from "rollup-plugin-commonjs";
+// import commonjs from "rollup-plugin-commonjs";
+import commonjs from "@rollup/plugin-commonjs";
 import path from "path";
 import replace from "@rollup/plugin-replace";
 import resolve from "@rollup/plugin-node-resolve";
@@ -37,7 +38,12 @@ const config = {
     }),
 
     //  See https://www.npmjs.com/package/rollup-plugin-typescript2 for config options
-    typescript(),
+    typescript({
+      // mykemod - this is my touch of genius, because it allows out
+      // tsconfig.json to say commonjs, which let's vscode intellisense work
+      // but override it within here to be es2015 so rollup can work
+      tsconfigOverride: { compilerOptions: { module: "es2015" } },
+    }),
   ],
 };
 
