@@ -1,5 +1,4 @@
 import { IBrickConstructor } from "../interfaces/brick.interface";
-import Phaser from "phaser";
 
 export class Brick extends Phaser.GameObjects.Sprite {
   body: Phaser.Physics.Arcade.Body;

@@ -1,5 +1,3 @@
-// import Phaser from "phaser";
-
 export class Test extends Phaser.GameObjects.Sprite {
   body: Phaser.Physics.Arcade.Body;
   // variables
@@ -10,7 +8,7 @@ export class Test extends Phaser.GameObjects.Sprite {
     // variables
     this.currentScene = aParams.scene;
     this.destroyingValue = aParams.value;
-    // this.initSprite();
+    this.initSprite();
     this.currentScene.add.existing(this);
   }
   private initSprite() {

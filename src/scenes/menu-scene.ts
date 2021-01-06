@@ -1,4 +1,3 @@
-import Phaser from "phaser";
 export class MenuScene extends Phaser.Scene {
   private startKey: Phaser.Input.Keyboard.Key;
   private bitmapTexts: Phaser.GameObjects.BitmapText[] = [];
