@@ -1,7 +1,7 @@
 import "phaser";
 
 import { height, width } from "../config";
-//
+
 export default class Demo extends Phaser.Scene {
   constructor() {
     super("GameScene");
@@ -20,6 +20,12 @@ export default class Demo extends Phaser.Scene {
       ease: "Sine.inOut",
       yoyo: true,
       repeat: -1,
+    });
+    var group = this.physics.add.group({ angularAcceleration: 60 });
+    group.create(100, 200, "logo");
+    this.time.delayedCall(6000, function () {
+      group.children.iterateLocal("setAngularAcceleration", 0);
+      group.children.iterateLocal("setAngularDrag", 60);
     });
   }
 }
