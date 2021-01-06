@@ -1,6 +1,6 @@
-import { Test } from "../objects/test";
+import Dude from "../objects/dude";
 export default class extends Phaser.Scene {
-  private boxes: Phaser.GameObjects.Group;
+  private dudes: Phaser.GameObjects.Group;
   constructor() {
     super("sceneTest");
   }
@@ -9,27 +9,26 @@ export default class extends Phaser.Scene {
   }
   create() {
     const logo = this.add.image(400, 70, "logo");
+    const blob = this.add.graphics();
+    blob.fillStyle(0xff0000, 0.8);
+    blob.fillCircle(
+      this.cameras.main.width / 2,
+      this.cameras.main.height / 2,
+      30
+    );
     this.tweens.add({
-      targets: logo,
-      y: 350,
-      duration: 1500,
-      ease: "Sine.inOut",
+      targets: blob,
+      y: this.cameras.main.height / 2 - 30,
+      duration: 1000,
+      ease: "Sine.in",
       yoyo: true,
       repeat: -1,
     });
-    var graphics = this.add.graphics();
-    graphics.lineStyle(4, 0x00ff00, 1);
-    graphics.strokeRect(32, 32, 256, 256);
-    graphics.fillStyle(0xff0000, 0.8);
-    graphics.fillCircle(260, 260, 120);
-    graphics.lineStyle(4, 0xff00ff, 1);
-    graphics.strokeEllipse(400, 300, 200, 128);
-
-    this.boxes = this.add.group({
+    this.dudes = this.add.group({
       runChildUpdate: true,
     });
-    this.boxes.add(
-      new Test({
+    this.dudes.add(
+      new Dude({
         scene: this,
         // content: object.properties.content,
         x: 10,

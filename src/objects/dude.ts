@@ -1,13 +1,11 @@
-export class Test extends Phaser.GameObjects.Sprite {
+import { sceneProps, scenePropsValues } from "../interfaces/scene";
+export default class extends Phaser.GameObjects.Sprite {
   body: Phaser.Physics.Arcade.Body;
-  // variables
   private currentScene: Phaser.Scene;
   protected destroyingValue: number;
-  constructor(aParams: any) {
-    super(aParams.scene, aParams.x, aParams.y, aParams.texture, aParams.frame);
-    // variables
-    this.currentScene = aParams.scene;
-    this.destroyingValue = aParams.value;
+  constructor(props: sceneProps) {
+    super(...(Object.values(props) as scenePropsValues));
+    this.currentScene = props.scene;
     this.initSprite();
     this.currentScene.add.existing(this);
   }
@@ -37,7 +35,7 @@ export class Test extends Phaser.GameObjects.Sprite {
       // destroy brick
       this.destroy();
       // add some score for killing the brick
-      this.currentScene.registry.values.score += this.destroyingValue;
+      this.currentScene.registry.values.score += 1;
       this.currentScene.events.emit("scoreChanged");
     }
   }
