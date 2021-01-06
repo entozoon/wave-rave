@@ -10,9 +10,11 @@ export class GameScene extends Phaser.Scene {
   // tilemap
   private map: Phaser.Tilemaps.Tilemap;
   private tileset: Phaser.Tilemaps.Tileset;
-  private backgroundLayer: Phaser.Tilemaps.StaticTilemapLayer;
-  private foregroundLayer: Phaser.Tilemaps.StaticTilemapLayer;
-
+  // private backgroundLayer: Phaser.Tilemaps.StaticTilemapLayer;
+  // private foregroundLayer: Phaser.Tilemaps.StaticTilemapLayer;
+  private backgroundLayer: Phaser.Tilemaps.TilemapLayer; // mykemod
+  private foregroundLayer: Phaser.Tilemaps.TilemapLayer; // mykemod
+  // private foo: Phaser
   // game objects
   private boxes: Phaser.GameObjects.Group;
   private bricks: Phaser.GameObjects.Group;
@@ -39,13 +41,13 @@ export class GameScene extends Phaser.Scene {
     this.map = this.make.tilemap({ key: this.registry.get("level") });
     // add our tileset and layers to our tilemap
     this.tileset = this.map.addTilesetImage("tiles");
-    this.backgroundLayer = this.map.createStaticLayer(
+    this.backgroundLayer = this.map.createLayer(
       "backgroundLayer",
       this.tileset,
       0,
       0
     );
-    this.foregroundLayer = this.map.createStaticLayer(
+    this.foregroundLayer = this.map.createLayer(
       "foregroundLayer",
       this.tileset,
       0,
