@@ -13,20 +13,8 @@ export default class extends Phaser.GameObjects.Sprite {
     this.setOrigin(0, 0);
     this.setFrame(0);
     this.parentScene.physics.world.enable(this);
-    this.body.setSize(8, 8); // physics BB
-    this.body.setAllowGravity(true);
-    this.body.setImmovable(false);
-    this.body.setBounce(0.5, Math.random());
-  }
-  update(): void {
-    if (this.body.touching.down) {
-      // console.log("[Dude touching down]");
-      // Remove it
-      // this.destroy();
-      // Add points into global registry
-      // this.parentScene.registry.values.score += 1;
-      // Emit events, etc
-      // this.parentScene.events.emit("scoreChanged");
-    }
+    this.body.setSize(88, 8); // physics BB
+    this.body.setAllowGravity(false);
+    this.body.setImmovable(true);
   }
 }

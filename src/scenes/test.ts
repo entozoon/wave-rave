@@ -1,6 +1,8 @@
 import Dude from "../objects/dude";
+import Floor from "../objects/floor";
 export default class extends Phaser.Scene {
   private dudes: Phaser.GameObjects.Group;
+  private floor: Phaser.GameObjects.Group;
   constructor() {
     super("sceneTest");
   }
@@ -24,24 +26,49 @@ export default class extends Phaser.Scene {
       yoyo: true,
       repeat: -1,
     });
+    // const physicsGroup = this.physics.add.group({
+    //   key: "stuff",
+    //   frameQuantity: 12,
+    //   maxSize: 12,
+    //   active: false,
+    //   visible: false,
+    //   enable: false,
+    //   collideWorldBounds: true,
+    //   bounceX: 0.5,
+    //   bounceY: 0.5,
+    //   dragX: 30,
+    //   dragY: 0,
+    // });
     this.dudes = this.add.group({
       runChildUpdate: true,
     });
-    this.dudes.add(
-      new Dude({
+    for (let i = 0; i < 15; i++) {
+      this.dudes.add(
+        new Dude({
+          scene: this,
+          // content: object.properties.content,
+          x: i * 10,
+          y: 10,
+          texture: "logo",
+        })
+      );
+    }
+    // Probably doesn't need to be in a group but yeah
+    this.floor = this.add.group();
+    this.floor.add(
+      new Floor({
         scene: this,
         // content: object.properties.content,
         x: 10,
-        y: 10,
+        y: this.cameras.main.height - 40,
         texture: "logo",
       })
-      // new Test(
-      //   this,
-      //   // content: object.properties.content,
-      //   10,
-      //   10,
-      //   "logo"
-      // )
     );
+    this.physics.add.collider(this.dudes, this.floor, (_player, _platform) => {
+      // console.log("[Collision: floor]");
+    });
+    this.physics.add.collider(this.dudes, this.dudes, (_player, _platform) => {
+      // console.log("[Collision: floor]");
+    });
   }
 }
