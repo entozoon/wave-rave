@@ -6,21 +6,13 @@ export default class extends Phaser.Scene {
   constructor() {
     super("sceneTest");
   }
-  preload() {
-    this.load.image("logo", "./assets/sprites/mario.png");
-  }
   create() {
-    const logo = this.add.image(400, 70, "logo");
     const blob = this.add.graphics();
     blob.fillStyle(0xff0000, 0.8);
-    blob.fillCircle(
-      this.cameras.main.width / 2,
-      this.cameras.main.height / 2,
-      30
-    );
+    blob.fillCircle(this.cameras.main.width / 2, 30, 30);
     this.tweens.add({
       targets: blob,
-      y: this.cameras.main.height / 2 - 30,
+      x: this.cameras.main.height / 2 - 30,
       duration: 1000,
       ease: "Sine.in",
       yoyo: true,
@@ -42,14 +34,14 @@ export default class extends Phaser.Scene {
     this.dudes = this.add.group({
       runChildUpdate: true,
     });
-    for (let i = 0; i < 15; i++) {
+    for (let i = 0; i < 10; i++) {
       this.dudes.add(
         new Dude({
           scene: this,
           // content: object.properties.content,
-          x: i * 10,
+          x: i * 35,
           y: 10,
-          texture: "logo",
+          texture: "dude",
         })
       );
     }
@@ -59,9 +51,9 @@ export default class extends Phaser.Scene {
       new Floor({
         scene: this,
         // content: object.properties.content,
-        x: 10,
+        x: this.cameras.main.width / 2,
         y: this.cameras.main.height - 40,
-        texture: "logo",
+        texture: "floor",
       })
     );
     this.physics.add.collider(this.dudes, this.floor, (_player, _platform) => {

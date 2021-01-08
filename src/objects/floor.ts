@@ -13,7 +13,7 @@ export default class extends Phaser.GameObjects.Sprite {
     this.setOrigin(0, 0);
     this.setFrame(0);
     this.parentScene.physics.world.enable(this);
-    this.body.setSize(88, 8); // physics BB
+    this.body.setSize(256, 8); // physics BB
     this.body.setAllowGravity(false);
     this.body.setImmovable(true);
   }

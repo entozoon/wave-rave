@@ -12,11 +12,13 @@ export default class extends Phaser.GameObjects.Sprite {
   private initSprite(): void {
     this.setOrigin(0, 0);
     this.setFrame(0);
+    this.angle = Math.random() * 3;
     this.parentScene.physics.world.enable(this);
-    this.body.setSize(8, 8); // physics BB
+    this.body.setSize(32, 32); // physics BB
     this.body.setAllowGravity(true);
     this.body.setImmovable(false);
     this.body.setBounce(0.5, Math.random());
+    this.body.setAllowRotation(true);
   }
   update(): void {
     if (this.body.touching.down) {

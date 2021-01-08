@@ -35,6 +35,8 @@ export default class extends Phaser.Scene {
       this
     );
     // this.load.pack("preload", "./assets/pack.json", "preload");
+    this.load.image("dude", "./assets/sprites/dude.png");
+    this.load.image("floor", "./assets/sprites/floor.png");
   }
   update(): void {
     this.scene.start("sceneTest");
