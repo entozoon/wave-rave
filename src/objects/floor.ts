@@ -16,5 +16,6 @@ export default class extends Phaser.GameObjects.Sprite {
     this.body.setSize(256, 8); // physics BB
     this.body.setAllowGravity(false);
     this.body.setImmovable(true);
+    this.body.setFriction(0.1, 0.1);
   }
 }

@@ -34,12 +34,12 @@ export default class extends Phaser.Scene {
     this.dudes = this.add.group({
       runChildUpdate: true,
     });
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 1; i++) {
       this.dudes.add(
         new Dude({
           scene: this,
           // content: object.properties.content,
-          x: i * 35,
+          x: i * 35 + 50,
           y: 10,
           texture: "dude",
         })
