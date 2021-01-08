@@ -12,10 +12,13 @@ export default class extends Phaser.GameObjects.Sprite {
   private initSprite(): void {
     this.setOrigin(0, 0);
     this.setFrame(0);
-    this.parentScene.physics.world.enable(this);
-    this.body.setSize(256, 8); // physics BB
-    this.body.setAllowGravity(false);
-    this.body.setImmovable(true);
-    this.body.setFriction(0.1, 0.1);
+    // this.parentScene.physics.world.enable(this);
+    // this.body.setSize(256, 8); // physics BB
+    // this.body.setAllowGravity(false);
+    // this.body.setImmovable(true);
+    // this.body.setFriction(0.1, 0.1);
+
+    // this.matter.add.rectangle(750, 200, 16, 180, { isStatic: true });
+    // ground.setFriction(0.005);
   }
 }

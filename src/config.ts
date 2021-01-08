@@ -15,10 +15,12 @@ export const GameConfig: Phaser.Types.Core.GameConfig = {
     keyboard: true,
   },
   physics: {
-    default: "arcade",
-    arcade: {
-      gravity: { y: 475 },
-      debug: true,
+    default: "matter",
+    matter: {
+      enableSleeping: true,
+      gravity: { x: 0, y: 0 },
+      // comment to remove. bear options https://github.com/photonstorm/phaser3-examples/blob/00f84c52b1a27475d5ab2866fdab300a220e6070/public/src/physics/matterjs/debug%20options.js#L74
+      debug: {},
     },
   },
   backgroundColor: "#111",

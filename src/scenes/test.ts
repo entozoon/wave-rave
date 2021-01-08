@@ -56,11 +56,5 @@ export default class extends Phaser.Scene {
         texture: "floor",
       })
     );
-    this.physics.add.collider(this.dudes, this.floor, (_player, _platform) => {
-      // console.log("[Collision: floor]");
-    });
-    this.physics.add.collider(this.dudes, this.dudes, (_player, _platform) => {
-      // console.log("[Collision: floor]");
-    });
   }
 }
