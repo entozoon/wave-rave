@@ -13,9 +13,15 @@
 
 ## Features WIP
 
-- Turbo
+- Turbo / Boosts
 - Powerups
-- Ramps
+- Ramps (airmove..?)
+- Whirlpools
+- Obstacles - Sand / Buoys / Coral
+- Verbal challenges 'you don't know my life!', maybe on bump? random gen?
+- Minimap
+- Place position, lap
+- Turn directions on course?
 - Flashing cyberpunk lasery checkpoints
 - Variable enemy AI / speed
 - Generative courses

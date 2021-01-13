@@ -2,8 +2,8 @@ import sceneLoad from "./scenes/load";
 import sceneTest from "./scenes/test";
 export const GameConfig: Phaser.Types.Core.GameConfig = {
   title: "Wave Rave",
-  width: 320,
-  height: 200,
+  width: 640,
+  height: 360,
   scale: {
     mode: Phaser.Scale.FIT,
     autoCenter: Phaser.Scale.CENTER_BOTH,
