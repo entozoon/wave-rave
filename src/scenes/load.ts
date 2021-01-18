@@ -25,7 +25,7 @@ export default class extends Phaser.Scene {
     );
     this.load.on(
       "complete",
-      function () {
+      () => {
         // this.animationHelperInstance = new AnimationHelper(
         //   this,
         //   this.cache.json.get("animationJSON")
@@ -36,7 +36,9 @@ export default class extends Phaser.Scene {
     );
     // this.load.pack("preload", "./assets/pack.json", "preload");
     this.load.image("dude", "./assets/sprites/dude.png");
-    this.load.image("floor", "./assets/sprites/floor.png");
+    // this.load.image("floor", "./assets/sprites/floor.png");
+    // NB: use atlas instead of image for a spritesheet
+    this.load.image("jet", "./assets/emitters/jet.png");
   }
   update(): void {
     this.scene.start("sceneTest");

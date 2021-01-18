@@ -17,7 +17,7 @@ export const GameConfig: Phaser.Types.Core.GameConfig = {
   physics: {
     default: "matter",
     matter: {
-      enableSleeping: true,
+      enableSleeping: false, // or things get stuck
       gravity: { x: 0, y: 0 },
       // comment to remove. bear options https://github.com/photonstorm/phaser3-examples/blob/00f84c52b1a27475d5ab2866fdab300a220e6070/public/src/physics/matterjs/debug%20options.js#L74
       debug: {},
