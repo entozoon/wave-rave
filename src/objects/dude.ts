@@ -123,6 +123,9 @@ export default class extends Phaser.GameObjects.Sprite {
         // gonna have to handle acceleration myself,
         // and probably even X/Y velocities. fuck sake
       }
+      if (this.cursors.down.isDown) {
+        this.physics.thrustRight(0.005);
+      }
       if (this.cursors.left.isDown) {
         this.physics.setAngularVelocity(-0.05);
       }
