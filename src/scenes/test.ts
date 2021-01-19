@@ -49,8 +49,8 @@ export default class extends Phaser.Scene {
       new Dude({
         scene: this,
         // content: object.properties.content,
-        x: 100 + 50,
-        y: 10,
+        x: this.cameras.main.width / 2,
+        y: this.cameras.main.height / 2,
         texture: "dude",
         hero: true,
         input: this.input,

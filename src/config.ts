@@ -23,7 +23,7 @@ export const GameConfig: Phaser.Types.Core.GameConfig = {
       debug: window.location.hostname == "localhost" ? {} : false,
     },
   },
-  backgroundColor: "#111",
+  backgroundColor: "#101",
   render: {
     pixelArt: true, // not necessarily good, tough on the ol' eyeholes
     antialias: false,
