@@ -8,7 +8,7 @@ export const GameConfig: Phaser.Types.Core.GameConfig = {
     mode: Phaser.Scale.FIT,
     autoCenter: Phaser.Scale.CENTER_BOTH,
   },
-  type: Phaser.AUTO,
+  type: Phaser.WEBGL, // force WEBGL for tints
   parent: "game",
   scene: [sceneLoad, sceneTest],
   input: {
@@ -19,13 +19,15 @@ export const GameConfig: Phaser.Types.Core.GameConfig = {
     matter: {
       enableSleeping: false, // or things get stuck
       gravity: { x: 0, y: 0 },
-      // comment to remove. bear options https://github.com/photonstorm/phaser3-examples/blob/00f84c52b1a27475d5ab2866fdab300a220e6070/public/src/physics/matterjs/debug%20options.js#L74
-      debug: window.location.hostname == "localhost" ? {} : false,
+      // bear options https://github.com/photonstorm/phaser3-examples/blob/00f84c52b1a27475d5ab2866fdab300a220e6070/public/src/physics/matterjs/debug%20options.js#L74
+      // debug: window.location.hostname == "localhost" ? {} : false,
     },
   },
-  backgroundColor: "#101",
+  // backgroundColor: "#101",
   render: {
-    pixelArt: true, // not necessarily good, tough on the ol' eyeholes
-    antialias: false,
+    // pixelArt: true, // not necessarily good, tough on the ol' eyeholes
+    // antialias: false,
+    transparent: true,
+    clearBeforeRender: false,
   },
 };

@@ -7,6 +7,12 @@ export default class extends Phaser.Scene {
     super("sceneTest");
   }
   create() {
+    // let image = this.add.image(
+    //   this.cameras.main.width,
+    //   this.cameras.main.height,
+    //   "dude"
+    // );
+    // image.setScale(100).setScrollFactor(0);
     // const blob = this.add.graphics();
     // blob.fillStyle(0xff0000, 0.8);
     // blob.fillCircle(this.cameras.main.width / 2, 30, 30);
