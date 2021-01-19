@@ -24,7 +24,7 @@ export default class extends Phaser.GameObjects.Sprite {
       //   { x: 32, y: -32 },
       //   { x: 0, y: -32 },
       // ],
-      chamfer: { radius: [12, 12, 0, 0] },
+      chamfer: { radius: [7, 7, 0, 0] }, // 12 is too snappy
       // slop: 0.1, // a kind of stickiness, but weird
       render: {
         sprite: {
@@ -35,6 +35,7 @@ export default class extends Phaser.GameObjects.Sprite {
       frictionAir: 0.01,
       mass: 100,
     });
+    this.physics.setBounce(0.1); // doesn't seem to affect the world bounds
     // You can actually tint specific pixels with setTintFill, if needed. Perhaps for flashing
     const guff1 = Math.random();
     const guff2 = Math.random();
@@ -85,10 +86,7 @@ export default class extends Phaser.GameObjects.Sprite {
       rotate: {
         onEmit: () => {
           if ("angle" in this.physics.body) {
-            // if (Math.random() > 0.999) {
-            //   console.log(this.physics.body.angle);
-            // }
-            // I love it when some things are radians and others degrees
+            // I love it when some things are radians and others degrees, not.
             return 360 * (this.physics.body.angle / (Math.PI * 2));
           }
         },
@@ -104,7 +102,11 @@ export default class extends Phaser.GameObjects.Sprite {
   }
   update(): void {
     // console.log(this.physics.body); // infinite info
-    if (this.cursors && "angularVelocity" in this.physics.body) {
+    if (
+      this.cursors &&
+      "angularVelocity" in this.physics.body &&
+      "speed" in this.physics.body
+    ) {
       // if (Phaser.Input.Keyboard.JustDown(this.cursors.up)) {
       if (this.cursors.up.isDown) {
         this.physics.thrustLeft(0.04);
@@ -112,17 +114,31 @@ export default class extends Phaser.GameObjects.Sprite {
       if (this.cursors.down.isDown) {
         this.physics.thrustRight(0.005);
       }
+      const turningStrength =
+        1 - Phaser.Math.Clamp(this.physics.body.speed, 0, 10) / 10;
+      if (Math.random() > 0.9) {
+        console.log(turningStrength);
+      }
       if (this.cursors.left.isDown) {
         // If I'm clever about it, frictionAir will take care of max speeds
         // applyForceFrom is also a thing:
-        //github.com/photonstorm/phaser3-examples/blob/master/public/src/physics/matterjs/top%20down%20car%20body.js
+        // https://github.com/photonstorm/phaser3-examples/blob/master/public/src/physics/matterjs/top%20down%20car%20body.js
         this.physics.setAngularVelocity(
-          this.physics.body.angularVelocity - 0.004
+          this.physics.body.angularVelocity - 0.005 * turningStrength
         );
+        // Arg, the thing with apply force from is that the origin is X/Y
+        // and I don't wanna angle around it but could work for jump obstacles
+        // this.physics.applyForceFrom(
+        //   new Phaser.Math.Vector2({
+        //     x: this.physics.body.position.x - 16,
+        //     y: this.physics.body.position.y + 32,
+        //   }),
+        //   new Phaser.Math.Vector2({ x: 0.0001, y: 0 })
+        // );
       }
       if (this.cursors.right.isDown) {
         this.physics.setAngularVelocity(
-          this.physics.body.angularVelocity + 0.004
+          this.physics.body.angularVelocity + 0.005 * turningStrength
         );
       }
     }
