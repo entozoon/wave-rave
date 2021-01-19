@@ -116,9 +116,6 @@ export default class extends Phaser.GameObjects.Sprite {
       }
       const turningStrength =
         1 - Phaser.Math.Clamp(this.physics.body.speed, 0, 10) / 10;
-      if (Math.random() > 0.9) {
-        console.log(turningStrength);
-      }
       if (this.cursors.left.isDown) {
         // If I'm clever about it, frictionAir will take care of max speeds
         // applyForceFrom is also a thing:
