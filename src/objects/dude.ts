@@ -17,6 +17,13 @@ export default class extends Phaser.GameObjects.Sprite {
     });
     this.physics.setRectangle(18, 32, {
       // https://photonstorm.github.io/phaser3-docs/Phaser.Types.Physics.Matter.html#.MatterBodyConfig
+      // You an also handcraft physics shapes
+      // vertices: [
+      //   { x: 0, y: 0 },
+      //   { x: 32, y: 0 },
+      //   { x: 32, y: -32 },
+      //   { x: 0, y: -32 },
+      // ],
       chamfer: { radius: [12, 12, 0, 0] },
       // slop: 0.1, // a kind of stickiness, but weird
       render: {
@@ -96,24 +103,19 @@ export default class extends Phaser.GameObjects.Sprite {
     }
   }
   update(): void {
+    // console.log(this.physics.body); // infinite info
     if (this.cursors && "angularVelocity" in this.physics.body) {
       // if (Phaser.Input.Keyboard.JustDown(this.cursors.up)) {
       if (this.cursors.up.isDown) {
-        // console.log(this.physics.isStatic());
-        // if ("speed" in this.physics.body) {
-        //   console.log(this.physics.body.speed);
-        // }
-        // console.log(this.physics.body); // infinite info
-        this.physics.thrustLeft(0.04); // not limitless, because air friction
-        // this.physics.setVelocityX(1);
-        // gonna have to handle acceleration myself,
-        // and probably even X/Y velocities. fuck sake
+        this.physics.thrustLeft(0.04);
       }
       if (this.cursors.down.isDown) {
         this.physics.thrustRight(0.005);
       }
       if (this.cursors.left.isDown) {
         // If I'm clever about it, frictionAir will take care of max speeds
+        // applyForceFrom is also a thing:
+        //github.com/photonstorm/phaser3-examples/blob/master/public/src/physics/matterjs/top%20down%20car%20body.js
         this.physics.setAngularVelocity(
           this.physics.body.angularVelocity - 0.004
         );
