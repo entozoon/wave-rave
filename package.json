@@ -19,7 +19,7 @@
     "@rollup/plugin-replace": "^2.3.0",
     "cross-env": "^7.0.2",
     "nollup": "^0.10.7",
-    "phaser": "^3.22.0",
+    "phaser": "^3.52.0",
     "rimraf": "^3.0.2",
     "rollup": "^1.29.0",
     "rollup-plugin-commonjs": "^10.1.0",

@@ -1,5 +1,6 @@
 import sceneLoad from "./scenes/load";
 import sceneTest from "./scenes/test";
+import sceneTest2 from "./scenes/test2";
 export const GameConfig: Phaser.Types.Core.GameConfig = {
   title: "Wave Rave",
   width: 640,
@@ -11,6 +12,7 @@ export const GameConfig: Phaser.Types.Core.GameConfig = {
   type: Phaser.WEBGL, // force WEBGL for tints
   parent: "game",
   scene: [sceneLoad, sceneTest],
+  // scene: [sceneTest2],
   input: {
     keyboard: true,
   },
@@ -23,11 +25,11 @@ export const GameConfig: Phaser.Types.Core.GameConfig = {
       // debug: window.location.hostname == "localhost" ? {} : false,
     },
   },
-  // backgroundColor: "#101",
+  backgroundColor: "#00f",
   render: {
-    // pixelArt: true, // not necessarily good, tough on the ol' eyeholes
-    // antialias: false,
+    pixelArt: true, // not necessarily good, tough on the ol' eyeholes
+    antialias: false,
     transparent: true,
-    clearBeforeRender: false,
+    // clearBeforeRender: false,
   },
 };
