@@ -1,6 +1,6 @@
 # Wave Rave
 
-🕹 [Wave Race](https://en.wikipedia.org/wiki/Wave_Race) inspired game, with a sweet CGA P0 palette.
+🕹 [Wave Race](https://en.wikipedia.org/wiki/Wave_Race) inspired game, with a sweet CGA P0 palette. Maybe. Or maybe not.
 
 ## [PLAY NOW](https://wave-rave.netlify.app/)
 
