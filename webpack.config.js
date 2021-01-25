@@ -6,13 +6,13 @@ const webpack = require("webpack"),
 module.exports = (env, argv) => {
   return {
     entry: {
-      main: [`${__dirname}/src/main.js`],
+      main: [`${__dirname}/src/main.ts`],
     },
     resolve: {
       modules: [`node_modules`, `src`],
-      extensions: [".js", ".css"],
+      extensions: [".ts", ".js", ".css"],
     },
-    devtool: "inline-source-map",
+    devtool: argv.mode == "production" ? false : "inline-source-map",
     output: {
       path: path.resolve(__dirname, "build"),
       filename: "bundle.js",
@@ -20,6 +20,15 @@ module.exports = (env, argv) => {
     },
     devServer: {
       contentBase: "./build",
+    },
+    module: {
+      rules: [
+        {
+          test: /\.ts$/,
+          use: `ts-loader`,
+          exclude: /node_modules/,
+        },
+      ],
     },
     plugins: [
       // new CleanWebpackPlugin([path.resolve(__dirname, "build")]),
