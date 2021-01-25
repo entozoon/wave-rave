@@ -30,7 +30,10 @@ export const test = () => {
       showAngleIndicator: true,
     },
   });
-  Render.run(matterRender); // ************************** don't do this in production, innit
+  // Only render Matter locally
+  if (window.location.hostname == "localhost") {
+    Render.run(matterRender);
+  }
   var runner = Runner.create();
   Runner.run(runner, engine);
   World.add(world, [
