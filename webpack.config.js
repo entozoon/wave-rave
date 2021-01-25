@@ -1,42 +1,43 @@
-const path = require("path");
-const pathToPhaser = path.join(__dirname, "/node_modules/phaser/");
-const phaser = path.join(pathToPhaser, "dist/phaser.js");
-
-module.exports = {
-  entry: "./src/game.ts",
-  output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "bundle.js",
-  },
-  module: {
-    rules: [
-      {
-        test: /\.ts$/,
-        include: path.resolve(__dirname, "src"),
-        exclude: /node_modules/,
-        loader: "ts-loader",
-      },
-      {
-        test: /phaser\.js$/,
-        exclude: /node_modules/,
-        loader: "expose-loader",
-        options: { exposes: { globalName: "Phaser", override: true } },
-      },
-    ],
-  },
-  devServer: {
-    contentBase: path.resolve(__dirname, "./"),
-    publicPath: "/dist/",
-    host: "127.0.0.1",
-    port: 8080,
-    open: true,
-    compress: true,
-    hot: true,
-  },
-  resolve: {
-    extensions: [".ts"],
-    alias: {
-      phaser: phaser,
+const webpack = require("webpack"),
+  HtmlWebpackPlugin = require("html-webpack-plugin"),
+  { CleanWebpackPlugin } = require("clean-webpack-plugin"),
+  CopyWebpackPlugin = require("copy-webpack-plugin"),
+  path = require("path");
+module.exports = (env, argv) => {
+  return {
+    entry: {
+      main: [`${__dirname}/src/main.ts`],
     },
-  },
+    resolve: {
+      modules: [`node_modules`, `src`],
+      extensions: [".ts", ".js", ".css"],
+    },
+    devtool: argv.mode == "production" ? false : "inline-source-map",
+    output: {
+      path: path.resolve(__dirname, "build"),
+      filename: "bundle.js",
+      globalObject: "this",
+    },
+    devServer: {
+      contentBase: "./build",
+    },
+    module: {
+      rules: [
+        {
+          test: /\.ts$/,
+          use: `ts-loader`,
+          exclude: /node_modules/,
+        },
+      ],
+    },
+    plugins: [
+      // new CleanWebpackPlugin([path.resolve(__dirname, "build")]),
+      new CleanWebpackPlugin(),
+      new CopyWebpackPlugin([{ from: "static" }]),
+      new HtmlWebpackPlugin({
+        template: "static/index.html",
+      }),
+    ],
+    performance: { hints: false },
+  };
 };
