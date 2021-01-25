@@ -7,21 +7,19 @@ import {
   Composites,
   Common,
 } from "matter-js";
-import Pixi from "../engines/Pixi";
+import Renderer from "../engines/Renderer";
 let body, hunk;
 export const test = () => {
   // Rectangle
-  body = new Pixi.Graphics();
+  body = new Renderer.pixi.Graphics();
   body.beginFill(0xde3249);
   body.drawRect(50, 50, 100, 100);
   body.endFill();
-  console.log(body);
-  Pixi.containerMain.addChild(body);
+  Renderer.layers.main.container.addChild(body);
   //
-  //
-  var engine = Engine.create(),
+  const engine = Engine.create(),
     world = engine.world;
-  var matterRender = Render.create({
+  const matterRender = Render.create({
     element: document.body,
     engine: engine,
     options: {
@@ -34,7 +32,7 @@ export const test = () => {
   if (window.location.hostname == "localhost") {
     Render.run(matterRender);
   }
-  var runner = Runner.create();
+  const runner = Runner.create();
   Runner.run(runner, engine);
   World.add(world, [
     Bodies.rectangle(400, 600, 1200, 50.5, {
@@ -60,14 +58,14 @@ export const test = () => {
   const flop = () => {
     body.position = hunk.position;
     body.rotation = hunk.angle;
-    Pixi.render();
+    Renderer.render();
     requestAnimationFrame(flop);
   };
   requestAnimationFrame(flop);
-  //   var engine = Engine.create(),
+  //   const engine = Engine.create(),
   //   world = engine.world;
   // // create renderer
-  // var render = Render.create({
+  // const render = Render.create({
   //   element: document.body,
   //   engine: engine,
   //   options: {

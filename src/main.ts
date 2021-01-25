@@ -1,8 +1,8 @@
-import Pixi from "./engines/Pixi";
+import Pixi from "./engines/Renderer";
 import { test } from "./stages/test";
 // Let there be firmaments, sound etc
 const game = async () => {
-  await Pixi.create();
+  // await Pixi.create();
   await test();
 };
 game();
