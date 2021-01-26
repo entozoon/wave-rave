@@ -1,5 +1,7 @@
 import Engine from "../engines/Engine";
 interface JetskiInterface {
+  x: number;
+  y: number;
   width: number;
   height: number;
 }
@@ -17,12 +19,12 @@ export default class {
     Engine.renderer.layers.main.container.addChild(this.sprite);
     // Physics
     this.body = Engine.physics.Bodies.rectangle(
-      100,
-      100,
+      props.x,
+      props.y,
       props.width,
       props.height,
       {
-        restitution: 0.6,
+        restitution: 0.6, // for oppressed entities
         friction: 0.1,
         chamfer: { radius: [7, 7, 0, 0] }, // 12 is too snappy
         // slop: 0.1, // a kind of stickiness, but weird
@@ -37,16 +39,18 @@ export default class {
       }
     );
     Engine.physics.World.add(Engine.physics.world, [this.body]);
+    // Emitter
+    // Yeah, check out tankblade for that nonsense. Gonna be in the waves layer
     Engine.onUpdate(() => {
       this.update();
     });
   }
   update() {
-    Engine.physics.Body.applyForce(
-      this.body,
-      { x: this.body.position.x, y: this.body.position.y },
-      { x: -0.002, y: -0.06 }
-    );
+    // Engine.physics.Body.applyForce(
+    //   this.body,
+    //   { x: this.body.position.x, y: this.body.position.y },
+    //   { x: -0.002, y: -0.06 }
+    // );
     // Abstract this out to like.. a physics+sprite object?
     this.sprite.position = this.body.position;
     this.sprite.rotation = this.body.angle;

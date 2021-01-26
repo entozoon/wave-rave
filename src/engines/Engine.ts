@@ -12,11 +12,14 @@ interface EngineInterface {
   };
 }
 class Engine {
+  public width: number;
+  public height: number;
   public renderer: Renderer;
   public physics: Physics;
   public sound: Sound;
   private updateCallbacks = [];
   constructor(props: EngineInterface) {
+    Object.assign(this, props);
     this.renderer = new Renderer(props);
     this.physics = new Physics(props);
     this.sound = new Sound();
