@@ -12,8 +12,4 @@ export const test = () => {
     angle: 0.1,
   });
   Engine.physics.World.add(Engine.physics.world, [floor]);
-
-  Engine.onUpdate(() => {
-    jetskis.forEach((j) => j.update());
-  });
 };
