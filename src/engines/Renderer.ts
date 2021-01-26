@@ -1,5 +1,6 @@
 import * as PIXI from "pixi.js";
 interface RendererInterface {
+  element: HTMLElement;
   width: number;
   height: number;
   layers: {
@@ -17,7 +18,7 @@ export default class {
     };
   } = {};
   constructor(props: RendererInterface) {
-    const { width, height } = props;
+    const { element, width, height } = props;
     this.pixi = PIXI;
     this.pixi.utils.skipHello(); // screw that
     // Sack antialiasing off with renderer settings and CSS
@@ -34,7 +35,7 @@ export default class {
         renderer,
         container: new PIXI.Container(),
       };
-      document.getElementById("game").appendChild(renderer.view);
+      element.appendChild(renderer.view);
     }
   }
   addBackground() {}

@@ -19,7 +19,7 @@ module.exports = (env, argv) => {
       globalObject: "this",
     },
     devServer: {
-      contentBase: "./build",
+      contentBase: "./static",
     },
     module: {
       rules: [

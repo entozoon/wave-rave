@@ -94,8 +94,3 @@ body {
   image-rendering: pixelated;
   -ms-interpolation-mode: nearest-neighbor;
 }
-#game ~ canvas {
-  position: absolute;
-  margin: 5px 0 0 5px;
-  opacity: 0.5;
-}

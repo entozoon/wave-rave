@@ -2,6 +2,7 @@ import Renderer from "./Renderer";
 import Physics from "./Physics";
 import Sound from "./Sound";
 interface EngineInterface {
+  element: HTMLElement;
   width: number;
   height: number;
   layers: {
@@ -21,6 +22,7 @@ class Engine {
   }
 }
 export default new Engine({
+  element: document.querySelector("#game"),
   width: 640,
   height: 640,
   layers: {
