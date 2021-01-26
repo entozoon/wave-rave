@@ -15,16 +15,26 @@ class Engine {
   public renderer: Renderer;
   public physics: Physics;
   public sound: Sound;
+  updateCallbacks = [];
   constructor(props: EngineInterface) {
     this.renderer = new Renderer(props);
     this.physics = new Physics(props);
     this.sound = new Sound();
+    requestAnimationFrame(this.update);
   }
+  update = () => {
+    this.updateCallbacks.forEach((c) => c());
+    this.renderer.render();
+    requestAnimationFrame(this.update);
+  };
+  onUpdate = (callback: any) => {
+    this.updateCallbacks.push(callback);
+  };
 }
 export default new Engine({
   element: document.querySelector("#game"),
   width: 640,
-  height: 640,
+  height: 360,
   layers: {
     waves: {
       antialias: false,

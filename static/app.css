@@ -14,71 +14,11 @@ body {
   background: black;
   height: 100vh;
 }
+/* If I wanna do like, sequential proportional kinda scaling, scss it up from tankblade */
 #game {
   position: relative;
-  width: 64px;
-  height: 64px;
-}
-/*! Scale up, to some extent, preserving pixel size and keeping within viewport */
-@media (min-width: calc(64px * 2)) and (min-height: calc(64px * 2)) {
-  #game {
-    width: 128px;
-    height: 128px;
-  }
-}
-@media (min-width: calc(64px * 3)) and (min-height: calc(64px * 3)) {
-  #game {
-    width: 192px;
-    height: 192px;
-  }
-}
-@media (min-width: calc(64px * 4)) and (min-height: calc(64px * 4)) {
-  #game {
-    width: 256px;
-    height: 256px;
-  }
-}
-@media (min-width: calc(64px * 5)) and (min-height: calc(64px * 5)) {
-  #game {
-    width: 320px;
-    height: 320px;
-  }
-}
-@media (min-width: calc(64px * 6)) and (min-height: calc(64px * 6)) {
-  #game {
-    width: 384px;
-    height: 384px;
-  }
-}
-@media (min-width: calc(64px * 7)) and (min-height: calc(64px * 7)) {
-  #game {
-    width: 448px;
-    height: 448px;
-  }
-}
-@media (min-width: calc(64px * 8)) and (min-height: calc(64px * 8)) {
-  #game {
-    width: 512px;
-    height: 512px;
-  }
-}
-@media (min-width: calc(64px * 9)) and (min-height: calc(64px * 9)) {
-  #game {
-    width: 576px;
-    height: 576px;
-  }
-}
-@media (min-width: calc(64px * 10)) and (min-height: calc(64px * 10)) {
-  #game {
-    width: 640px;
-    height: 640px;
-  }
-}
-@media (min-width: calc(64px * 11)) and (min-height: calc(64px * 11)) {
-  #game {
-    width: 704px;
-    height: 704px;
-  }
+  width: 100%;
+  padding-bottom: 56.25%;
 }
 #game canvas {
   position: absolute;

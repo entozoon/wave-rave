@@ -13,14 +13,11 @@ export default class {
     // // this.sprite.drawRect(0, 0, props.width, props.height);
     // // this.sprite.endFill();
     const spriteSheet = "/sprites/jetski.png";
-    // @ts-expect-error
-    const spriteSheetTexture = new Engine.renderer.pixi.Texture.from(
-      spriteSheet
-    ).baseTexture;
-    console.log(spriteSheetTexture);
+    const spriteSheetTexture = Engine.renderer.pixi.Texture.from(spriteSheet)
+      .baseTexture;
     const texture = new Engine.renderer.pixi.Texture(
       spriteSheetTexture
-      // 0 // frame
+      // frame
     );
     this.sprite = new Engine.renderer.pixi.Sprite(texture);
     //   spriteSheet
