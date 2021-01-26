@@ -16,13 +16,14 @@
 - Turbo / Boosts
 - Powerups
 - Ramps (airmove..?)
-- Whirlpools
+- Whirlpools, Oil slicks
 - Obstacles - Sand / Buoys / Coral
 - Verbal challenges 'you don't know my life!', maybe on bump? random gen?
 - Minimap
 - Place position, lap
 - Turn directions on course?
 - Flashing cyberpunk lasery checkpoints
+- Screen shake impact / chug of engine start
 - Variable enemy AI / speed
 - Generative courses
 - Obstacles
