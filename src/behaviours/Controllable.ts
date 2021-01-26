@@ -22,6 +22,8 @@ const directionKeycodeFromTouchPos = ({ x, y, width, height, keyCodes }) => {
   return getKeyByValue(keyCodes, keyCode);
 };
 export default class {
+  private keyCodes: {};
+  private keyMatrix = {};
   constructor() {
     const { width, height } = Engine;
     this.keyCodes = {
@@ -35,7 +37,6 @@ export default class {
       68: "right",
       32: "space",
     };
-    this.keyMatrix = {};
     // this.keyMatrix = [...new Set(Object.values(this.keyCodes))]; // nah, cope undefines innit
     document.addEventListener("keydown", (e) => {
       this.keypress(e);
@@ -67,21 +68,21 @@ export default class {
         this.keyMatrix[i] = false;
       }
     });
-    this.controllableUpdate = this.controllableUpdate;
   }
-  controllableUpdate() {
-    this.setThrust({
-      x: this.keyMatrix.left
-        ? -this.thrustPower
-        : this.keyMatrix.right
-        ? this.thrustPower
-        : 0,
-      y: this.keyMatrix.up
-        ? -this.thrustPower
-        : this.keyMatrix.down
-        ? this.thrustPower
-        : 0,
-    });
+  public controllableUpdate() {
+    console.log("controllable update..");
+    // this.setThrust({
+    //   x: this.keyMatrix.left
+    //     ? -this.thrustPower
+    //     : this.keyMatrix.right
+    //     ? this.thrustPower
+    //     : 0,
+    //   y: this.keyMatrix.up
+    //     ? -this.thrustPower
+    //     : this.keyMatrix.down
+    //     ? this.thrustPower
+    //     : 0,
+    // });
   }
   keypress(e) {
     if (this.keyCodes[e.keyCode]) {
