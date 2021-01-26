@@ -1,6 +1,5 @@
 import Engine from "../engines/Engine";
 import Jetski from "../entities/Jetski";
-let body, hunk;
 export const test = () => {
   let jetskis = [];
   jetskis.push(new Jetski({ width: 20, height: 30 }));

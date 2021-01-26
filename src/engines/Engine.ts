@@ -15,18 +15,22 @@ class Engine {
   public renderer: Renderer;
   public physics: Physics;
   public sound: Sound;
-  updateCallbacks = [];
+  private updateCallbacks = [];
   constructor(props: EngineInterface) {
     this.renderer = new Renderer(props);
     this.physics = new Physics(props);
     this.sound = new Sound();
-    requestAnimationFrame(this.update);
+    this.physics.Events.on(this.physics.engine, "afterUpdate", () => {
+      this.updateCallbacks.forEach((c) => c());
+      this.renderer.render();
+    });
+    // requestAnimationFrame(this.update);
   }
-  update = () => {
-    this.updateCallbacks.forEach((c) => c());
-    this.renderer.render();
-    requestAnimationFrame(this.update);
-  };
+  // update = () => {
+  //   this.updateCallbacks.forEach((c) => c());
+  //   this.renderer.render();
+  //   requestAnimationFrame(this.update);
+  // };
   onUpdate = (callback: any) => {
     this.updateCallbacks.push(callback);
   };

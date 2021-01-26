@@ -37,12 +37,27 @@ export default class {
       {
         restitution: 0.6,
         friction: 0.1,
+        chamfer: { radius: [7, 7, 0, 0] }, // 12 is too snappy
+        // slop: 0.1, // a kind of stickiness, but weird
+        render: {
+          sprite: {
+            xOffset: 0.2,
+          },
+        },
+        frictionAir: 0.01,
+        mass: 100,
         // isStatic: true, obstacles
       }
     );
     Engine.physics.World.add(Engine.physics.world, [this.body]);
   }
   update() {
+    Engine.physics.Body.applyForce(
+      this.body,
+      { x: this.body.position.x, y: this.body.position.y },
+      { x: -0.002, y: -0.06 }
+    );
+    // Abstract this out to like.. a physics+sprite object?
     this.sprite.position = this.body.position;
     this.sprite.rotation = this.body.angle;
   }

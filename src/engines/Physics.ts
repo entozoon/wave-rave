@@ -1,9 +1,11 @@
 import {
+  Bodies,
+  Body,
   Engine,
+  Events,
   Render,
   Runner,
   World,
-  Bodies,
   // Composites,
   // Common,
 } from "matter-js";
@@ -14,14 +16,18 @@ export default class {
   public world: World;
   public World: any;
   public Bodies: any;
+  public Body: any;
+  public Events: any;
   constructor(props: any) {
     const { element, width, height } = props;
     const shouldRender = window.location.hostname == "localhost";
     this.engine = Engine.create();
     this.world = this.engine.world;
     this.runner = Runner.create();
-    this.World = World;
     this.Bodies = Bodies;
+    this.Body = Body;
+    this.Events = Events;
+    this.World = World;
     Runner.run(this.runner, this.engine);
     if (shouldRender) {
       this.render = Render.create({
@@ -37,7 +43,6 @@ export default class {
         },
       });
       Render.run(this.render);
-
       // fit the render viewport to the scene
       // Render.lookAt(this.render, {
       //   min: { x: 0, y: 0 },
