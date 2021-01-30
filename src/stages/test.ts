@@ -17,8 +17,7 @@ export const test = () => {
     width: 20,
     height: 30,
   });
-  Object.assign(hero, new Controllable());
-  // !! gotta somehow integrate controllable into the engine update. controllableUpdate style code but probably not in Controllable
+  Object.assign(hero, new Controllable({ parent: hero }));
   jetskis.push(hero);
   // Ideally I wanna be currying in the hero favours rather than in the entity
 

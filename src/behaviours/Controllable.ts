@@ -24,8 +24,10 @@ const directionKeycodeFromTouchPos = ({ x, y, width, height, keyCodes }) => {
 export default class {
   private keyCodes: {};
   private keyMatrix = {};
-  constructor() {
+  private parent: any;
+  constructor({ parent }) {
     const { width, height } = Engine;
+    this.parent = parent;
     this.keyCodes = {
       38: "up",
       87: "up",
@@ -68,9 +70,13 @@ export default class {
         this.keyMatrix[i] = false;
       }
     });
+    Engine.onUpdate(() => {
+      this.update();
+    });
   }
-  public controllableUpdate() {
-    console.log("controllable update..");
+  update() {
+    // console.log("controllable update..", this);
+    // how to control the ship... I've passed through this.parent.body shit
     // this.setThrust({
     //   x: this.keyMatrix.left
     //     ? -this.thrustPower

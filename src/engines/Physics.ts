@@ -21,13 +21,20 @@ export default class {
   constructor(props: any) {
     const { element, width, height } = props;
     const shouldRender = window.location.hostname == "localhost";
-    this.engine = Engine.create();
-    this.world = this.engine.world;
+    this.engine = Engine.create(null, {
+      enableSleeping: false, // or things get stuck
+    });
+    this.engine.world.gravity = {
+      x: 0,
+      y: 0,
+      scale: 0,
+    };
     this.runner = Runner.create();
     this.Bodies = Bodies;
     this.Body = Body;
     this.Events = Events;
     this.World = World;
+    this.world = this.engine.world;
     Runner.run(this.runner, this.engine);
     if (shouldRender) {
       this.render = Render.create({
