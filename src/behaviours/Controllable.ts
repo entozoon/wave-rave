@@ -1,3 +1,4 @@
+///<reference path="Controllable.d.ts"/>
 import Engine from "../engines/Engine";
 const getTouchPos = (canvas, e) => {
   // Grab the scale because, the bloody transforms don't get factored in
@@ -23,7 +24,7 @@ const directionKeycodeFromTouchPos = ({ x, y, width, height, keyCodes }) => {
 };
 export default class {
   private keyCodes: {};
-  private keyMatrix = {};
+  private keyMatrix: KeyMatrix = {};
   private parent: any;
   constructor({ parent }) {
     const { width, height } = Engine;
@@ -77,6 +78,15 @@ export default class {
   update() {
     // console.log("controllable update..", this);
     // how to control the ship... I've passed through this.parent.body shit
+    // if (this.keyMatrix?.up) {
+    //   this.parent.up();
+    // }
+    for (let key in this.keyMatrix) {
+      // console.log(this.parent);
+      if (this.parent?.control && this.keyMatrix[key]) {
+        this.parent.control(key);
+      }
+    }
     // this.setThrust({
     //   x: this.keyMatrix.left
     //     ? -this.thrustPower
@@ -96,7 +106,7 @@ export default class {
       if (this.keyMatrix[this.keyCodes[e.keyCode]] !== (e.type === "keydown")) {
         this.keyMatrix[this.keyCodes[e.keyCode]] = e.type === "keydown";
         // Significant interaction moment. Don't.. don't worry about ^this code; hard braindump
-        console.log(this.keyMatrix);
+        // console.log(this.keyMatrix);
       }
     }
   }

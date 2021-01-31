@@ -26,6 +26,7 @@ export const test = () => {
     isStatic: true,
     render: { fillStyle: "#060a19" },
     angle: 0.1,
+    friction: 0,
   });
   Engine.physics.World.add(Engine.physics.world, [floor]);
 };
