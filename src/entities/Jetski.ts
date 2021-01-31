@@ -50,29 +50,41 @@ export default class {
     });
   }
   control(key: string) {
+    const strengthTurn = 0.00001;
+    const strengthForward = 0.01;
+    const strengthBackward = 0.005;
     const jet = {
       x: this.body.position.x + (this.height / 2) * -Math.sin(this.body.angle),
       y: this.body.position.y + (this.height / 2) * Math.cos(this.body.angle),
     };
+    // console.log("this.body.position.y", this.body.position.y);
+    // console.log("jet.y", jet.y);
     // Not sure if I understood these vectors, but it does feel right
     if (key == "left") {
       Engine.physics.Body.applyForce(this.body, jet, {
-        x: (this.width / 2) * Math.cos(this.body.angle) * 0.00001,
-        y: (this.width / 2) * Math.sin(this.body.angle) * 0.00001,
+        x: (this.width / 2) * Math.cos(this.body.angle) * strengthTurn,
+        y: (this.width / 2) * Math.sin(this.body.angle) * strengthTurn,
       });
     }
     if (key == "right") {
       Engine.physics.Body.applyForce(this.body, jet, {
-        x: (-this.width / 2) * Math.cos(this.body.angle) * 0.00001,
-        y: (-this.width / 2) * Math.sin(this.body.angle) * 0.00001,
+        x: (-this.width / 2) * Math.cos(this.body.angle) * strengthTurn,
+        y: (-this.width / 2) * Math.sin(this.body.angle) * strengthTurn,
       });
     }
     // Drinking two nights on the trot but I can still just about figure out this trigonometry
     // 17y old me would be proud
     if (key == "up") {
       Engine.physics.Body.applyForce(this.body, jet, {
-        x: (this.body.position.x - jet.x) * 0.01,
-        y: (this.body.position.y - jet.y) * 0.01,
+        // vector between the center of the ship and the jet, factored by a strength
+        x: (this.body.position.x - jet.x) * strengthForward,
+        y: (this.body.position.y - jet.y) * strengthForward,
+      });
+    }
+    if (key == "down") {
+      Engine.physics.Body.applyForce(this.body, jet, {
+        x: (jet.x - this.body.position.x) * strengthBackward,
+        y: (jet.y - this.body.position.y) * strengthBackward,
       });
     }
   }
