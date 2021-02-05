@@ -13,6 +13,7 @@
 
 ## Features WIP
 
+- Water shaders - https://pixijs.io/examples/#/demos-basic/simpleplane.js
 - Turbo / Boosts
 - Powerups
 - Ramps (airmove..?)

@@ -2,11 +2,13 @@
 import Engine from "../engines/Engine";
 const getTouchPos = (canvas, e) => {
   // Grab the scale because, the bloody transforms don't get factored in
-  const scale = Math.round(canvas.getBoundingClientRect().width / 64);
-  return {
-    x: (e.touches[0].clientX - canvas.getBoundingClientRect().left) / scale,
-    y: (e.touches[0].clientY - canvas.getBoundingClientRect().top) / scale,
-  };
+  // const scale = Math.round(canvas.getBoundingClientRect().width / 64);
+  // return {
+  //   x: (e.touches[0].clientX - canvas.getBoundingClientRect().left) / scale,
+  //   y: (e.touches[0].clientY - canvas.getBoundingClientRect().top) / scale,
+  // };
+  window.alert("No touch algorithm yet");
+  return { x: 0, y: 0 };
 };
 const getKeyByValue = (object, value) =>
   Object.keys(object).find((key) => object[key] === value);
@@ -25,10 +27,10 @@ const directionKeycodeFromTouchPos = ({ x, y, width, height, keyCodes }) => {
 export default class {
   private keyCodes: {};
   private keyMatrix: KeyMatrix = {};
-  private parent: any;
-  constructor({ parent }) {
+  private hero: any;
+  constructor({ hero }) {
     const { width, height } = Engine;
-    this.parent = parent;
+    this.hero = hero;
     this.keyCodes = {
       38: "up",
       87: "up",
@@ -77,14 +79,14 @@ export default class {
   }
   update() {
     // console.log("controllable update..", this);
-    // how to control the ship... I've passed through this.parent.body shit
+    // how to control the ship... I've passed through this.hero.body shit
     // if (this.keyMatrix?.up) {
-    //   this.parent.up();
+    //   this.hero.up();
     // }
     for (let key in this.keyMatrix) {
-      // console.log(this.parent);
-      if (this.parent?.control && this.keyMatrix[key]) {
-        this.parent.control(key);
+      // console.log(this.hero);
+      if (this.hero?.control && this.keyMatrix[key]) {
+        this.hero.control(key);
       }
     }
     // this.setThrust({

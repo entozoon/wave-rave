@@ -1,6 +1,7 @@
 import Engine from "../engines/Engine";
 import Jetski from "../entities/Jetski";
 import Controllable from "../behaviours/Controllable";
+import Camera from "../behaviours/Camera";
 export const test = () => {
   let jetskis = [];
   jetskis.push(
@@ -17,16 +18,27 @@ export const test = () => {
     width: 20,
     height: 30,
   });
-  Object.assign(hero, new Controllable({ parent: hero }));
+  // Delicious curries
+  Object.assign(hero, [new Controllable({ hero }), new Camera({ hero })]);
   jetskis.push(hero);
-  // Ideally I wanna be currying in the hero favours rather than in the entity
 
-  // floor test
-  const floor = Engine.physics.Bodies.rectangle(400, 300, 1200, 50.5, {
+  // Obstacle test
+  const obstacle = Engine.physics.Bodies.rectangle(400, 300, 1200, 50, {
     isStatic: true,
-    render: { fillStyle: "#060a19" },
-    angle: 0.1,
+    render: { fillStyle: "#aaa" },
+    // angle: 0.3,
     friction: 0,
   });
-  Engine.physics.World.add(Engine.physics.world, [floor]);
+  Engine.physics.World.add(Engine.physics.world, [obstacle]);
+  //
+  var graphics = new Engine.renderer.pixi.Graphics();
+  // anchor doesn't work on primitives so .. fuck them
+  // graphics.anchor.set(0.5, 0.5);
+  // pivot is basically offset, so that's handy
+  graphics.pivot.x = 1200 / 2;
+  graphics.pivot.y = 50 / 2;
+  graphics.beginFill(0xffaa00);
+  graphics.drawRect(400, 300, 1200, 50);
+  // graphics.rotation = 0.3;
+  Engine.renderer.layers.main.container.addChild(graphics);
 };

@@ -11,10 +11,11 @@ import {
 } from "matter-js";
 export default class {
   public engine: Engine;
+  public Render: any;
   public render: Render;
   public runner: Runner;
-  public world: World;
   public World: any;
+  public world: World;
   public Bodies: any;
   public Body: any;
   public Events: any;
@@ -35,6 +36,7 @@ export default class {
     this.Events = Events;
     this.World = World;
     this.world = this.engine.world;
+    this.Render = Render;
     Runner.run(this.runner, this.engine);
     if (shouldRender) {
       this.render = Render.create({

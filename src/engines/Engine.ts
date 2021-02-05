@@ -1,6 +1,7 @@
 import Renderer from "./Renderer";
 import Physics from "./Physics";
 import Sound from "./Sound";
+import { width, height } from "../config";
 interface EngineInterface {
   element: HTMLElement;
   width: number;
@@ -40,8 +41,8 @@ class Engine {
 }
 export default new Engine({
   element: document.querySelector("#game"),
-  width: 640,
-  height: 360,
+  width,
+  height,
   layers: {
     waves: {
       antialias: false,
