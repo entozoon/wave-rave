@@ -44,7 +44,7 @@ export default new Engine({
   width,
   height,
   layers: {
-    waves: {
+    water: {
       antialias: false,
       resolution: 1,
       backgroundColor: 0x222222,

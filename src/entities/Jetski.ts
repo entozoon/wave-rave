@@ -44,8 +44,6 @@ export default class {
       }
     );
     Engine.physics.World.add(Engine.physics.world, [this.body]);
-    // Emitter
-    // Yeah, check out tankblade for that nonsense. Gonna be in the waves layer
     Engine.onUpdate(() => {
       this.update();
     });

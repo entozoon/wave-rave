@@ -10,9 +10,11 @@ export default class {
   }
   update() {
     const target = this.hero.body.position;
-    // PIXI render translate
+    // PIXI render translate (separate, as I'll probably want a HUD)
     Engine.renderer.layers.main.container.pivot.x = target.x - width / 2;
     Engine.renderer.layers.main.container.pivot.y = target.y - height / 2;
+    Engine.renderer.layers.water.container.pivot.x = target.x - width / 2;
+    Engine.renderer.layers.water.container.pivot.y = target.y - height / 2;
     // MatterJS render translate (localhost only)
     Engine.physics.Render.lookAt(Engine.physics.render, {
       min: { x: target.x - width / 2, y: target.y - height / 2 },
