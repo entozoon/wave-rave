@@ -14,7 +14,7 @@ module.exports = (env, argv) => {
     },
     devtool: argv.mode == "production" ? false : "inline-source-map",
     output: {
-      path: path.resolve(__dirname, "build"),
+      path: path.resolve(__dirname, "dist"),
       filename: "bundle.js",
       globalObject: "this",
     },
@@ -31,7 +31,7 @@ module.exports = (env, argv) => {
       ],
     },
     plugins: [
-      // new CleanWebpackPlugin([path.resolve(__dirname, "build")]),
+      // new CleanWebpackPlugin([path.resolve(__dirname, "dist")]),
       new CleanWebpackPlugin(),
       new CopyWebpackPlugin([{ from: "static" }]),
       new HtmlWebpackPlugin({
