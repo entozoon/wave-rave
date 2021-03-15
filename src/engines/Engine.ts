@@ -25,7 +25,12 @@ class Engine {
     this.physics = new Physics(props);
     this.sound = new Sound();
     this.physics.Events.on(this.physics.engine, "afterUpdate", () => {
-      this.updateCallbacks.forEach((c) => c());
+      // this.updateCallbacks.forEach((c) => c());
+      this.updateCallbacks.forEach((c) => {
+        c();
+        // console.log(typeof c);
+        // console.log(c);
+      });
       this.renderer.render();
     });
     // requestAnimationFrame(this.update);

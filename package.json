@@ -2,10 +2,11 @@
   "name": "wave-rave",
   "version": "1.0.0",
   "description": "🕹 Wave Race inspired game",
-  "main": "build/bundle.js",
+  "main": "dist/bundle.js",
   "scripts": {
     "start": "webpack-dev-server --mode=development --open",
-    "build": "webpack --mode=production"
+    "build": "webpack --mode=production",
+    "serve": "live-server dist"
   },
   "repository": {
     "type": "git",
@@ -37,5 +38,8 @@
   },
   "resolutions": {
     "pixi-sound/@pixi/loaders": "5.3.7"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.1"
   }
 }

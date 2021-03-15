@@ -25,6 +25,10 @@ export default class {
     // );
     // could maybe try https://pixijs.download/dev/docs/PIXI.AbstractRenderer.html
     // MatterJS render translate (localhost only)
+    if (!Engine.physics.render) {
+      // Build bug..
+      return "OOF";
+    }
     Engine.physics.Render.lookAt(Engine.physics.render, {
       min: { x: target.x - width / 2, y: target.y - height / 2 },
       max: { x: target.x + width / 2, y: target.y + height / 2 },
