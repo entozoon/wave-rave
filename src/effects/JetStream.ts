@@ -6,22 +6,10 @@ export default class {
   constructor({ hero }) {
     this.hero = hero;
     this.particleContainer = new Engine.renderer.pixi.ParticleContainer(1000, {
-      // @ts-expect-error (types aren't up to date)
-      scale: true,
-      position: true,
+      vertices: true,
       rotation: true,
       uvs: true,
-      alpha: true,
-      preserveDrawingBuffer: true,
-      clearBeforeRender: false,
-      // width: 64,
-      // height: 64,
-      // antialias: false,
-      // transparent: false,
-      // resolution: 1,
-      // backgroundColor: 0x222222,
-      // preserveDrawingBuffer: true,
-      // clearBeforeRender: false
+      tint: true,
     });
     this.particleContainer.zIndex = 0;
     Engine.renderer.layers.water.container.addChild(this.particleContainer);

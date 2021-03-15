@@ -47,7 +47,7 @@ export default new Engine({
     water: {
       antialias: false,
       resolution: 1,
-      backgroundColor: 0x222222,
+      // backgroundColor: 0x332222,
       transparent: false,
       preserveDrawingBuffer: true,
       clearBeforeRender: false,

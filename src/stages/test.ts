@@ -57,15 +57,19 @@ export const test = () => {
   water.pivot.y = 50 / 2;
   water.beginFill(0x220011);
   water.drawRect(0, 0, width, height);
-  water.alpha = 0.15;
+  water.alpha = 0.05;
   // water.zIndex = 0;
   Engine.renderer.layers.water.container.addChild(water);
+  //
+  // ^^ next https://pixijs.download/dev/docs/PIXI.TilingSprite.html
+  //
 };
 
 //
 // CURRENT ISSUES:
+// - water fadeover wants to position itself in the viewport too
+// - ^ clearBeforeRender is more like a canvas property
 // - swirls are getting garbage collection because they're offscreen but.. they're not
 //   so they need to check against a camera viewport
-// - water fadeover wants to position itself in the viewport too
 // - if it even wants to exist? i didn't really want that effect
 //
