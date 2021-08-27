@@ -4,6 +4,11 @@
 
 ## [PLAY NOW](https://wave-rave.netlify.app/)
 
+## WHERE I GOT UP TO
+
+The creator of Phaser IIRC recommended I look at https://pixijs.download/dev/docs/PIXI.RenderTexture.html
+Using the idea of saving the wave spatter to a texture as it goes along
+
 ## Palette
 
 - #FFFF55
