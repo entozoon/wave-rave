@@ -13,7 +13,7 @@ export default class {
   public pixi: typeof PIXI;
   public layers: {
     [key: string]: {
-      renderer: PIXI.Renderer;
+      renderer: PIXI.AbstractRenderer;
       container: PIXI.Container;
     };
   } = {};
