@@ -1,4 +1,4 @@
-import * as PIXI from "pixi.js";
+import * as PIXI from "pixi.js"; // maybe obsolete with v6
 interface RendererInterface {
   element: HTMLElement;
   width: number;

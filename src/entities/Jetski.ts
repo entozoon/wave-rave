@@ -1,3 +1,4 @@
+import * as PIXI from "pixi.js"; // shoud be obsolete with v6?!
 import Engine from "../engines/Engine";
 import { constrain } from "../lib/utils";
 interface JetskiInterface {
@@ -16,8 +17,8 @@ export default class {
     this.height = props.height;
     // Renderer
     const spriteSheet = "/sprites/jetski.png";
-    const spriteSheetTexture = Engine.renderer.pixi.Texture.from(spriteSheet)
-      .baseTexture;
+    const spriteSheetTexture =
+      Engine.renderer.pixi.Texture.from(spriteSheet).baseTexture;
     const texture = new Engine.renderer.pixi.Texture(spriteSheetTexture);
     this.sprite = new Engine.renderer.pixi.Sprite(texture);
     this.sprite.anchor.set(0.5, 0.5);

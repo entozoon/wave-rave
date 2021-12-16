@@ -1,3 +1,4 @@
+import * as PIXI from "pixi.js"; // shoud be obsolete with v6?!
 import Renderer from "./Renderer";
 import Physics from "./Physics";
 import Sound from "./Sound";
